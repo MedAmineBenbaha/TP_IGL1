@@ -36,7 +36,7 @@ final public class VectorHelper {
      * @param vect2
      * @throws DifferentException 
      */
-    public static void summermlksdnfgbsdfnbosjfdbglsjbdb(Vector vect1,Vector vect2)throws DifferentException{
+    public static void summermlksdnfgbsdfnboskjdfhglksdjhfgjfdbglsjbdb(Vector vect1,Vector vect2)throws DifferentException{
         if(vect1.size()!=vect2.size()){
             throw new DifferentException();
         }
