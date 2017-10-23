@@ -36,7 +36,7 @@ final public class VectorHelper {
      * @param vect2
      * @throws DifferentException 
      */
-    public static void sum(Vector vect1,Vector vect2)throws DifferentException{
+    public static void summer(Vector vect1,Vector vect2)throws DifferentException{
         if(vect1.size()!=vect2.size()){
             throw new DifferentException();
         }
@@ -71,6 +71,15 @@ final public class VectorHelper {
      */
     public static void  reverse(Vector v){
         int size=v.capacity();
+        int j= size-1;
+        int i=0;
+        while (j>i){
+        swap(v,i,j);
+        j--;
+        i++;
+        }
+    
+    
     }
     /**
      * inverser deux elements donner i et j d'un vecteur v  
@@ -79,7 +88,7 @@ final public class VectorHelper {
      * @param j 
      */
     
-    private void swap(Vector v,int i, int j) {
+    public static void swap(Vector v,int i, int j) {
         int tmp =(int) v.get(i);
         v.set(i,v.get(j));
         v.set(j,tmp);
