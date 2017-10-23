@@ -13,8 +13,12 @@ import java.util.Vector;
  */
 final public class VectorHelper {
 
-    private Vector vect;
-
+    /**
+     *
+     * @param vect
+     * @param start
+     * @param end
+     */
     public void vectorSort(Vector vect,int start,int end){
         int m;
         try{
@@ -49,14 +53,22 @@ final public class VectorHelper {
 
 
     }
-    public void  reverse(Vector v){
+    
+    
+    public static void  reverse(Vector v){
         int size=v.capacity();
-
-
-    }
-    private void swap(Vector v,int i, int j) {
+        int j=size-1;
+        int i=0;
+        while (j>i){
+        swap(v,i,j);
+        j--;
+        i++;
+        }
+      }
+    public static void swap(Vector v,int i, int j) {
         int tmp =(int) v.get(i);
         v.set(i,v.get(j));
         v.set(j,tmp);
     }
+
 }
