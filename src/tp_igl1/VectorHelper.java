@@ -8,52 +8,77 @@ package tp_igl1;
 import java.util.Vector;
 
 /**
- *
- * @author mac
+ * class 
+ * @author Mohammed Amine Benbaha
+ * @author Islem Sayah
  */
 final public class VectorHelper {
-
-    private Vector vect;
-
-    public void vectorSort(Vector vect,int start,int end){
-        int m;
-        try{
-            if(start<end){
-                m = Partition (vect,start,end);
-                vectorSort(vect,start,m-1);
-                vectorSort(vect,m+1,end);
+    /**
+     * 
+     * @param vect 
+     */
+    public static void vectorSort(Vector vect){
+        int n = vect.size();
+	for (int j = 1; j < n; j++) {
+		int key = (int) vect.get(j);
+		int i = j-1;
+		while ( (i > -1) && ( (int)vect.get(i) > key ) ) {
+			vect.set(i+1, vect.get(i));
+			i--;
+		}
+		vect.set(i+1,key);
+	}
+    }
+    /**
+     * sommer  les deux vecteurs vect1 et vect2
+     * s'ils ne sont pas egaux alors elle va donner une exception
+     * @param vect1
+     * @param vect2
+     * @throws DifferentException 
+     */
+    public static void sum(Vector vect1,Vector vect2)throws DifferentException{
+        if(vect1.size()!=vect2.size()){
+            throw new DifferentException();
+        }
+        else{
+            Vector vect3 = null;
+            for (int j = 0; j <vect1.size(); j++) {
+		vect3.addElement((int)vect1.get(j)+(int)vect2.get(j));
             }
-        }catch(Exception e){
-            e.printStackTrace();
         }
     }
-
-    int pivot,i,j,k;
-    public int Partition (Vector v,int start,int end){
-
-        pivot=v.capacity();
-        i=(start-1); // index of the smaller elm
-        for(j=start;j<=end-1;j++){
-            //If the current elemnt is smaller than (or equal) to pivot
-            /*if((v.get(j))<=pivot){
-                i++;
-                swap(v,i,j);
-            }*/
+    /**
+     * donner le minimum (min) et le maximum (max)
+     * d'un vecteur v
+     * @param v le vecteur donner
+     * @param max le maximum du vecteur
+     * @param min  le minimum du vecteur
+     */
+    public static void minmax(Vector v,int max ,int min){
+        max=min=(int) v.get(0);
+        for (int j = 1; j <v.size(); j++){
+		if((int)(v.get(j))>max){
+                    max=(int) v.get(j);
+                }
+                if((int)(v.get(j))<min){
+                    min=(int)(v.get(j));
+                }
         }
-        //swapping ..
-        swap(v,i+1,end);
-        return i+1;
-
     }
-    public void sum(Vector vector1,Vector vector2){
-
-
-    }
-    public void  reverse(Vector v){
+    /**
+     * inverser le vecteur v 
+     * @param v 
+     */
+    public static void  reverse(Vector v){
         int size=v.capacity();
-
-
     }
+    /**
+     * inverser deux elements donner i et j d'un vecteur v  
+     * @param v le vecteur contient les deux valeur à inverser
+     * @param i
+     * @param j 
+     */
+    
     private void swap(Vector v,int i, int j) {
         int tmp =(int) v.get(i);
         v.set(i,v.get(j));
